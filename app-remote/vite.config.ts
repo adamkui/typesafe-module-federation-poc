@@ -11,7 +11,10 @@ export default defineConfig({
       filename: "remoteEntry.js",
       exposes: {
         "./components/AreaChart": "./src/components/AreaChart.tsx",
+        "./components/BarChart": "./src/components/BarChart.tsx",
+        "./components/ColumnChart": "./src/components/ColumnChart.tsx",
         "./components/LineChart": "./src/components/LineChart.tsx",
+        "./components/PieChart": "./src/components/PieChart.tsx",
         "./utils": "./src/utils.ts",
       },
       shared: ["react", "react-dom", "lodash"],
