@@ -1,7 +1,10 @@
 import React, { Suspense } from "react";
 
 // import type { lodash, formatName } from "appA/utils";
-const RemoteAreaChart = React.lazy(() => import("app-remote/AreaChart"));
+const RemoteAreaChart = React.lazy(
+  () => import("app-remote/components/AreaChart")
+);
+const LineChart = React.lazy(() => import("app-remote/components/LineChart"));
 // const { formatName, lodash } = await import("app-remote/utils").then(
 //   (utils) => utils.default
 // );
@@ -30,9 +33,9 @@ export default function App() {
         <nav className="sm:w-1/3 min-w-80 max-w-80 flex flex-col justify-start border-r border-white/10 h-full p-6">
           <ul className="flex flex-col">
             <li
-              className={`p-6 uppercase text-xs font-semibold tracking-widest cursor-pointer bg-white/5 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl p-6`}
+              className={`p-6 text-xs uppercase font-semibold tracking-widest cursor-pointer bg-white/5 backdrop-blur-xl border border-white/20 shadow-xl rounded-2xl p-6`}
             >
-              {"Remote application 1"}
+              {"Admin charts (remote)"}
             </li>
           </ul>
         </nav>
@@ -43,7 +46,10 @@ export default function App() {
             }
           >
             <Suspense fallback={<p>Loading remote...</p>}>
-              <RemoteAreaChart />
+              <div className="flex flex-row gap-6">
+                <RemoteAreaChart />
+                <LineChart />
+              </div>
             </Suspense>
           </div>
         </div>

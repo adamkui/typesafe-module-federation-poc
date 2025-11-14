@@ -10,8 +10,8 @@ export default defineConfig({
       name: "app-remote",
       filename: "remoteEntry.js",
       exposes: {
-        "./AreaChart": "./src/AreaChart.tsx",
-        "./LineChart": "./src/LineChart.tsx",
+        "./components/AreaChart": "./src/components/AreaChart.tsx",
+        "./components/LineChart": "./src/components/LineChart.tsx",
         "./utils": "./src/utils.ts",
       },
       shared: ["react", "react-dom", "lodash"],

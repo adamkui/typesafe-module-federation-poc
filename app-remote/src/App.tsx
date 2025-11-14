@@ -1,5 +1,5 @@
-import AreaChart from "./AreaChart";
-import LineChart from "./LineChart";
+import AreaChart from "./components/AreaChart";
+import LineChart from "./components/LineChart";
 
 function App() {
   return (
