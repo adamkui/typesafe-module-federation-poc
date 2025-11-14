@@ -28,7 +28,7 @@ export default function AreaChart({
     const svg = d3.select(svgRef.current);
     const tooltip = d3.select(tooltipRef.current);
 
-    const brandColor = "#6366f1"; // Tailwind indigo-500, fix érték
+    const brandColor = "#6366f1"; // Tailwind indigo-500
 
     const w = container.clientWidth;
     const h = height;
@@ -40,13 +40,11 @@ export default function AreaChart({
     const innerW = w - margin.left - margin.right;
     const innerH = h - margin.top - margin.bottom;
 
-    // X scale
     const x = d3
       .scaleLinear()
       .domain([0, categories.length - 1])
       .range([0, innerW]);
 
-    // Y scale
     const y = d3
       .scaleLinear()
       .domain([d3.min(data)! * 0.98, d3.max(data)! * 1.02])
@@ -56,7 +54,6 @@ export default function AreaChart({
       .append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`);
 
-    // Gradient fill
     const defs = svg.append("defs");
     const gradient = defs
       .append("linearGradient")
@@ -78,7 +75,6 @@ export default function AreaChart({
       .attr("stop-color", brandColor)
       .attr("stop-opacity", 0);
 
-    // Area
     const area = d3
       .area<number>()
       .x((_, i) => x(i))
@@ -91,7 +87,6 @@ export default function AreaChart({
       .attr("d", area)
       .attr("fill", "url(#areaGradient)");
 
-    // Line
     const line = d3
       .line<number>()
       .x((_, i) => x(i))
@@ -106,7 +101,6 @@ export default function AreaChart({
       .attr("fill", "none")
       .attr("stroke-linecap", "round");
 
-    // Hover interactions
     const overlay = g
       .append("rect")
       .attr("width", innerW)
