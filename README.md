@@ -18,8 +18,9 @@ The host application automatically loads the remote modules with Module Federati
 
 ## Project Structure
 
-/app-host # Main application
-/app-remote # Contains individual chart components and lodash library + type definitions generated at build
+/app-host:  Main application
+
+/app-remote:  Contains individual chart components and lodash library + type definitions generated at build
 
 ## Features
 
